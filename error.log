@@ -1,0 +1,27 @@
+2017-12-22 03:39:20 [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: zhihuuser)
+2017-12-22 03:39:20 [scrapy.utils.log] INFO: Versions: lxml 4.1.1.0, libxml2 2.9.7, cssselect 1.0.1, parsel 1.2.0, w3lib 1.18.0, Twisted 17.9.0, Python 2.7.9 (default, Jun 29 2016, 13:08:31) - [GCC 4.9.2], pyOpenSSL 17.5.0 (OpenSSL 1.1.0g  2 Nov 2017), cryptography 2.1.4, Platform Linux-4.2.0-27-generic-x86_64-with-debian-8.10
+2017-12-22 03:39:20 [scrapy.crawler] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'zhihuuser.spiders', 'FEED_URI': 'file:///var/lib/scrapyd/items/willtest/zhihu/b1dd1b34e6c911e7b0c10242ac110002.jl', 'DUPEFILTER_CLASS': 'scrapy_redis.dupefilter.RFPDupeFilter', 'SPIDER_MODULES': ['zhihuuser.spiders'], 'BOT_NAME': 'zhihuuser', 'SCHEDULER': 'scrapy_redis.scheduler.Scheduler', 'LOG_FILE': '/var/lib/scrapyd/logs/willtest/zhihu/b1dd1b34e6c911e7b0c10242ac110002.log'}
+2017-12-22 03:39:21 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2017-12-22 03:39:21 [twisted] CRITICAL: Unhandled error in Deferred:
+2017-12-22 03:39:21 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/twisted/internet/defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "/usr/local/lib/python2.7/dist-packages/scrapy/crawler.py", line 98, in crawl
+    six.reraise(*exc_info)
+  File "/usr/local/lib/python2.7/dist-packages/scrapy/crawler.py", line 80, in crawl
+    self.engine = self._create_engine()
+  File "/usr/local/lib/python2.7/dist-packages/scrapy/crawler.py", line 105, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "/usr/local/lib/python2.7/dist-packages/scrapy/core/engine.py", line 67, in __init__
+    self.scheduler_cls = load_object(self.settings['SCHEDULER'])
+  File "/usr/local/lib/python2.7/dist-packages/scrapy/utils/misc.py", line 44, in load_object
+    mod = import_module(module)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named scrapy_redis.scheduler
