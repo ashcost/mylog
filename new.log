@@ -1,0 +1,88 @@
+2017-12-25 21:44:32 [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: zhihuuser)
+2017-12-25 21:44:32 [scrapy.utils.log] INFO: Overridden settings: {'LOG_LEVEL': 'INFO', 'SPIDER_MODULES': ['zhihuuser.spiders'], 'BOT_NAME': 'zhihuuser', 'LOG_FILE': 'logs/foo/zhihu/d653450ee9ff11e7bea3000c29d5dfab.log', 'NEWSPIDER_MODULE': 'zhihuuser.spiders', 'DUPEFILTER_CLASS': 'scrapy_redis.dupefilter.RFPDupeFilter', 'SCHEDULER': 'scrapy_redis.scheduler.Scheduler'}
+2017-12-25 21:44:33 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage']
+2017-12-25 21:44:33 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-12-25 21:44:33 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-12-25 21:44:33 [scrapy.middleware] INFO: Enabled item pipelines:
+['zhihuuser.pipelines.MongoPipeline', 'scrapy_redis.pipelines.RedisPipeline']
+2017-12-25 21:44:33 [scrapy.core.engine] INFO: Spider opened
+2017-12-25 21:44:33 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-12-25 21:44:33 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.zhihu.com/api/v4/members/excited-vczh?include=locations,employments,gender,educations,business,voteup_count,thanked_Count,follower_count,following_count,cover_url,following_topic_count,following_question_count,following_favlists_count,following_columns_count,answer_count,articles_count,pins_count,question_count,commercial_question_count,favorite_count,favorited_count,logs_count,marked_answers_count,marked_answers_text,message_thread_token,account_status,is_active,is_force_renamed,is_bind_sina,sina_weibo_url,sina_weibo_name,show_sina_weibo,is_blocking,is_blocked,is_following,is_followed,mutual_followees_count,vote_to_count,vote_from_count,thank_to_count,thank_from_count,thanked_count,description,hosted_live_count,participated_live_count,allow_message,industry_category,org_name,org_homepage,badge[?(type=best_answerer)].topics>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/defer.py", line 1384, in _inlineCallbacks
+    result = result.throwExceptionIntoGenerator(g)
+  File "/usr/local/lib/python3.5/dist-packages/twisted/python/failure.py", line 408, in throwExceptionIntoGenerator
+    return g.throw(self.type, self.value, self.tb)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/defer.py", line 653, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/endpoints.py", line 954, in startConnectionAttempts
+    "no results for hostname lookup: {}".format(self._hostStr)
+twisted.internet.error.DNSLookupError: DNS lookup failed: no results for hostname lookup: www.zhihu.com.
+2017-12-25 21:44:33 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.zhihu.com/api/v4/members/excited-vczh/followees?include=data[*].answer_count,articles_count,gender,follower_count,is_followed,is_following,badge[?(type=best_answerer)].topics&offset=0&limit=20>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/defer.py", line 1384, in _inlineCallbacks
+    result = result.throwExceptionIntoGenerator(g)
+  File "/usr/local/lib/python3.5/dist-packages/twisted/python/failure.py", line 408, in throwExceptionIntoGenerator
+    return g.throw(self.type, self.value, self.tb)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/defer.py", line 653, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/endpoints.py", line 954, in startConnectionAttempts
+    "no results for hostname lookup: {}".format(self._hostStr)
+twisted.internet.error.DNSLookupError: DNS lookup failed: no results for hostname lookup: www.zhihu.com.
+2017-12-25 21:44:33 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.zhihu.com/api/v4/members/excited-vczh/followers?include=data[*].answer_count,articles_count,gender,follower_count,is_followed,is_following,badge[?(type=best_answerer)].topics&offset=0&limit=20>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/defer.py", line 1384, in _inlineCallbacks
+    result = result.throwExceptionIntoGenerator(g)
+  File "/usr/local/lib/python3.5/dist-packages/twisted/python/failure.py", line 408, in throwExceptionIntoGenerator
+    return g.throw(self.type, self.value, self.tb)
+  File "/usr/local/lib/python3.5/dist-packages/scrapy/core/downloader/middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/defer.py", line 653, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "/usr/local/lib/python3.5/dist-packages/twisted/internet/endpoints.py", line 954, in startConnectionAttempts
+    "no results for hostname lookup: {}".format(self._hostStr)
+twisted.internet.error.DNSLookupError: DNS lookup failed: no results for hostname lookup: www.zhihu.com.
+2017-12-25 21:44:33 [scrapy.core.engine] INFO: Closing spider (finished)
+2017-12-25 21:44:33 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 9,
+ 'downloader/exception_type_count/twisted.internet.error.DNSLookupError': 9,
+ 'downloader/request_bytes': 5898,
+ 'downloader/request_count': 9,
+ 'downloader/request_method_count/GET': 9,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2017, 12, 26, 5, 44, 33, 951072),
+ 'log_count/ERROR': 3,
+ 'log_count/INFO': 7,
+ 'memusage/max': 58380288,
+ 'memusage/startup': 58380288,
+ 'retry/count': 6,
+ 'retry/max_reached': 3,
+ 'retry/reason_count/twisted.internet.error.DNSLookupError': 6,
+ 'scheduler/dequeued/redis': 9,
+ 'scheduler/enqueued/redis': 9,
+ 'start_time': datetime.datetime(2017, 12, 26, 5, 44, 33, 500204)}
+2017-12-25 21:44:33 [scrapy.core.engine] INFO: Spider closed (finished)
